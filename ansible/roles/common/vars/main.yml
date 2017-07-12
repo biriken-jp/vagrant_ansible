@@ -1,2 +1,4 @@
 ---
-remi_repo: http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+remi_repos:
+  - http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+  - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
