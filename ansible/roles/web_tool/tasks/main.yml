@@ -1,15 +1,20 @@
 ---
+# --
 - name: php instal
   yum: name={{ item }} state=installed enablerepo=remi,remi-php71
   with_items:
     - php
     - php-*
+# --
 
+# --
 - name: check composer
   stat: path=/usr/local/bin/composer
   register: composer_bin
   tags: composer
+# --
 
+# --
 - block:
   - name: download composer
     get_url:
@@ -27,6 +32,11 @@
       path: /usr/local/bin/composer
       mode: a+x
       state: file
+#  Composer を100倍速くする
+# http://qiita.com/bezeklik/items/f9bc7afc229b5476e822
+  - name: install prestissimo
+    command: composer config -g repos.packagist composer https://packagist.jp && composer global require hirak/prestissimo
 
   when: not composer_bin.stat.exists
   tags: composer
+# --
