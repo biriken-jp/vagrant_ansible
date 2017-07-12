@@ -55,5 +55,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.verbose = true
     ansible.sudo = true
     ansible.limit = "all"
+    ansible.verbose = "v"
   end
 end
