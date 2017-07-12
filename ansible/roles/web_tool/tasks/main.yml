@@ -1,10 +1,12 @@
 ---
 # --
+- name: Install php remi
+  yum: name={{ php_remi }} state=installed
+  ignore_errors: True
+
 - name: php instal
-  yum: name={{ item }} state=installed enablerepo=remi,remi-php71
-  with_items:
-    - php
-    - php-*
+  yum: name={{ item }} state=installed enablerepo=remi,remi-php{{ php_version }}
+  with_items: "{{ php_items }}"
 # --
 
 # --
@@ -36,6 +38,8 @@
 # http://qiita.com/bezeklik/items/f9bc7afc229b5476e822
   - name: install prestissimo
     command: composer config -g repos.packagist composer https://packagist.jp && composer global require hirak/prestissimo
+    become: yes
+    become_user: vagrant
 
   when: not composer_bin.stat.exists
   tags: composer

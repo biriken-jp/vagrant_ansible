@@ -1,1 +1,18 @@
 ---
+# 70=7.0
+# 71=7.1
+php_version: 71
+php_remi: http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+php_items:
+  - php
+  - php-devel
+  - php-fpm
+  - php-intl
+  - php-mbstring
+  - php-mysqlnd
+  - php-pdo
+  - php-gd
+  - php-xdebug
+  - php-mcrypt
+  - php-opcache
+  - php-apcu
