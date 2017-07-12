@@ -6,6 +6,14 @@
   command: setenforce permissive
   ignore_errors: True
 
+- name: epel-release
+  yum: name=epel-release state=installed
+  ignore_errors: True
+
+- name: Add repository 'remi-repo'
+  command: rpm -ih {{ remi_repo }} creates=/etc/yum.repos.d/remi.repo
+  ignore_errors: True
+
 - name: Install Packeges
   yum: name={{ item }} state=present
   with_items:
@@ -22,3 +30,4 @@
     - postfix
     - ca-certificates
     - ImageMagick
+    - ruby
