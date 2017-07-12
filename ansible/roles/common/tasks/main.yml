@@ -1,4 +1,5 @@
 ---
+# --
 - name: Install libselinux-python
   yum: name=libselinux-python state=present
 
@@ -6,14 +7,24 @@
   command: setenforce permissive
   ignore_errors: True
 
-- name: epel-release
-  yum: name=epel-release state=installed
-  ignore_errors: True
+# --
+- name: check remi-repo
+  stat: path=/etc/yum.repos.d/remi.repo
+  register: remi_repo
+# --
 
-- name: Add repository 'remi-repo'
-  command: rpm -ih {{ remi_repo }} creates=/etc/yum.repos.d/remi.repo
-  ignore_errors: True
+# --
+- block:
+  - name: epel-release
+    yum: name=epel-release state=installed
 
+  - name: Add repository 'remi-repo'
+    command: rpm -ih {{ remi_repo }} creates=/etc/yum.repos.d/remi.repo
+
+  when: not remi_repo.stat.exists
+# --
+
+# --
 - name: Install Packeges
   yum: name={{ item }} state=present
   with_items:
@@ -31,3 +42,4 @@
     - ca-certificates
     - ImageMagick
     - ruby
+# --
