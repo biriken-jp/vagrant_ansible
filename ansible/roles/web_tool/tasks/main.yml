@@ -37,7 +37,7 @@
 #  Composer を100倍速くする
 # http://qiita.com/bezeklik/items/f9bc7afc229b5476e822
   - name: install prestissimo
-    command: composer config -g repos.packagist composer https://packagist.jp && composer global require hirak/prestissimo
+    command: composer global require hirak/prestissimo
     become: yes
     become_user: vagrant
 
