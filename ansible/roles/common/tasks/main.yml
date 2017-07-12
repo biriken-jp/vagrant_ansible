@@ -26,10 +26,6 @@
   - name: epel-release
     yum: name=epel-release state=installed
 
-  - name: Add repository 'remi-repo'
-    yum: name={{ item }} state=present
-    with_items: remi_repos
-
   when: not remi_repo.stat.exists
 # --
 
@@ -37,6 +33,7 @@
 - name: Install Packeges
   yum: name={{ item }} state=present
   with_items:
+    - ansible
     - epel-release
     - gcc
     - vim
