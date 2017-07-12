@@ -16,3 +16,5 @@ php_items:
   - php-mcrypt
   - php-opcache
   - php-apcu
+  - php-zip
+  - php-pear

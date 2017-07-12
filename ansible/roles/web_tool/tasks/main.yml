@@ -36,6 +36,11 @@
       state: file
 #  Composer を100倍速くする
 # http://qiita.com/bezeklik/items/f9bc7afc229b5476e822
+  - name: chenge pakagist.jp
+    command: composer config -g repositories.packagist composer https://packagist.jp
+    become: yes
+    become_user: vagrant
+
   - name: install prestissimo
     command: composer global require hirak/prestissimo
     become: yes
