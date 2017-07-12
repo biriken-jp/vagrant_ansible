@@ -2,10 +2,18 @@
 # --
 - name: Install libselinux-python
   yum: name=libselinux-python state=present
+# --
 
+# --
 - name: Change SELinux Policy Mode
   command: setenforce permissive
   ignore_errors: True
+# --
+
+# --
+- name: upgrade all packages
+  yum: name=* state=latest
+# --
 
 # --
 - name: check remi-repo
@@ -19,9 +27,8 @@
     yum: name=epel-release state=installed
 
   - name: Add repository 'remi-repo'
-    yum: {{ item }} state=present
-    with_items:
-      {{ remi_repos }}
+    yum: name={{ item }} state=present
+    with_items: remi_repos
 
   when: not remi_repo.stat.exists
 # --
