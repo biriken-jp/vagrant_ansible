@@ -1,0 +1,6 @@
+---
+- name: php instal
+  yum: name={{ item }} state=installed enablerepo=remi,remi-php71
+  with_items:
+    - php
+    - php-*
