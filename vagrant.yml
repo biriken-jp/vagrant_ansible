@@ -1,0 +1,11 @@
+# boxname
+box: centos/7
+# memory 512, 1024, 2048
+memory: 1024
+# id_address
+ip: 192.168.33.55
+
+# mount folder
+# [local]synced_folder ->[vb]document_root
+synced_folder: ./
+document_root: /share

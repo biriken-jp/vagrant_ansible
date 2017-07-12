@@ -1,0 +1,7 @@
+.idea
+.vagrant
+
+# ansible
+ansible/linode_tuan.yml
+install.retry
+ansible/hosts

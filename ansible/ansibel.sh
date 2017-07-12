@@ -1,0 +1,1 @@
+ansible-playbook -i ./hosts -u vagrant install.yml
