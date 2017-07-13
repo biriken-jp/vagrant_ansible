@@ -197,7 +197,7 @@ pm.max_spare_servers = 35
 ;   content length       - the content length of the request (only with POST);
 ;   user                 - the user (PHP_AUTH_USER) (or '-' if not set);
 ;   script               - the main script called (or '-' if not set);
-;   last request cpu     - the %cpu the last request consumed
+;   last request cpu     - the _パーセント_cpu the last request consumed
 ;                          it's always 0 if the process is not in Idle state
 ;                          because CPU calculation is done when the request
 ;                          processing has terminated;
@@ -256,62 +256,62 @@ pm.max_spare_servers = 35
 
 ; The access log format.
 ; The following syntax is allowed
-;  %%: the '%' character
-;  %C: %CPU used by the request
+;  _パーセント__パーセント_: the '_パーセント_' character
+;  _パーセント_C: _パーセント_CPU used by the request
 ;      it can accept the following format:
-;      - %{user}C for user CPU only
-;      - %{system}C for system CPU only
-;      - %{total}C  for user + system CPU (default)
-;  %d: time taken to serve the request
+;      - _パーセント_{user}C for user CPU only
+;      - _パーセント_{system}C for system CPU only
+;      - _パーセント_{total}C  for user + system CPU (default)
+;  _パーセント_d: time taken to serve the request
 ;      it can accept the following format:
-;      - %{seconds}d (default)
-;      - %{miliseconds}d
-;      - %{mili}d
-;      - %{microseconds}d
-;      - %{micro}d
-;  %e: an environment variable (same as $_ENV or $_SERVER)
+;      - _パーセント_{seconds}d (default)
+;      - _パーセント_{miliseconds}d
+;      - _パーセント_{mili}d
+;      - _パーセント_{microseconds}d
+;      - _パーセント_{micro}d
+;  _パーセント_e: an environment variable (same as $_ENV or $_SERVER)
 ;      it must be associated with embraces to specify the name of the env
 ;      variable. Some exemples:
-;      - server specifics like: %{REQUEST_METHOD}e or %{SERVER_PROTOCOL}e
-;      - HTTP headers like: %{HTTP_HOST}e or %{HTTP_USER_AGENT}e
-;  %f: script filename
-;  %l: content-length of the request (for POST request only)
-;  %m: request method
-;  %M: peak of memory allocated by PHP
+;      - server specifics like: _パーセント_{REQUEST_METHOD}e or _パーセント_{SERVER_PROTOCOL}e
+;      - HTTP headers like: _パーセント_{HTTP_HOST}e or _パーセント_{HTTP_USER_AGENT}e
+;  _パーセント_f: script filename
+;  _パーセント_l: content-length of the request (for POST request only)
+;  _パーセント_m: request method
+;  _パーセント_M: peak of memory allocated by PHP
 ;      it can accept the following format:
-;      - %{bytes}M (default)
-;      - %{kilobytes}M
-;      - %{kilo}M
-;      - %{megabytes}M
-;      - %{mega}M
-;  %n: pool name
-;  %o: output header
+;      - _パーセント_{bytes}M (default)
+;      - _パーセント_{kilobytes}M
+;      - _パーセント_{kilo}M
+;      - _パーセント_{megabytes}M
+;      - _パーセント_{mega}M
+;  _パーセント_n: pool name
+;  _パーセント_o: output header
 ;      it must be associated with embraces to specify the name of the header:
-;      - %{Content-Type}o
-;      - %{X-Powered-By}o
-;      - %{Transfert-Encoding}o
+;      - _パーセント_{Content-Type}o
+;      - _パーセント_{X-Powered-By}o
+;      - _パーセント_{Transfert-Encoding}o
 ;      - ....
-;  %p: PID of the child that serviced the request
-;  %P: PID of the parent of the child that serviced the request
-;  %q: the query string
-;  %Q: the '?' character if query string exists
-;  %r: the request URI (without the query string, see %q and %Q)
-;  %R: remote IP address
-;  %s: status (response code)
-;  %t: server time the request was received
+;  _パーセント_p: PID of the child that serviced the request
+;  _パーセント_P: PID of the parent of the child that serviced the request
+;  _パーセント_q: the query string
+;  _パーセント_Q: the '?' character if query string exists
+;  _パーセント_r: the request URI (without the query string, see _パーセント_q and _パーセント_Q)
+;  _パーセント_R: remote IP address
+;  _パーセント_s: status (response code)
+;  _パーセント_t: server time the request was received
 ;      it can accept a strftime(3) format:
-;      %d/%b/%Y:%H:%M:%S %z (default)
-;      The strftime(3) format must be encapsuled in a %{<strftime_format>}t tag
-;      e.g. for a ISO8601 formatted timestring, use: %{%Y-%m-%dT%H:%M:%S%z}t
-;  %T: time the log has been written (the request has finished)
+;      _パーセント_d/_パーセント_b/_パーセント_Y:_パーセント_H:_パーセント_M:_パーセント_S _パーセント_z (default)
+;      The strftime(3) format must be encapsuled in a _パーセント_{<strftime_format>}t tag
+;      e.g. for a ISO8601 formatted timestring, use: _パーセント_{_パーセント_Y-_パーセント_m-_パーセント_dT_パーセント_H:_パーセント_M:_パーセント_S_パーセント_z}t
+;  _パーセント_T: time the log has been written (the request has finished)
 ;      it can accept a strftime(3) format:
-;      %d/%b/%Y:%H:%M:%S %z (default)
-;      The strftime(3) format must be encapsuled in a %{<strftime_format>}t tag
-;      e.g. for a ISO8601 formatted timestring, use: %{%Y-%m-%dT%H:%M:%S%z}t
-;  %u: remote user
+;      _パーセント_d/_パーセント_b/_パーセント_Y:_パーセント_H:_パーセント_M:_パーセント_S _パーセント_z (default)
+;      The strftime(3) format must be encapsuled in a _パーセント_{<strftime_format>}t tag
+;      e.g. for a ISO8601 formatted timestring, use: _パーセント_{_パーセント_Y-_パーセント_m-_パーセント_dT_パーセント_H:_パーセント_M:_パーセント_S_パーセント_z}t
+;  _パーセント_u: remote user
 ;
-; Default: "%R - %u %t \"%m %r\" %s"
-;access.format = "%R - %u %t \"%m %r%Q%q\" %s %f %{mili}d %{kilo}M %C%%"
+; Default: "_パーセント_R - _パーセント_u _パーセント_t \"_パーセント_m _パーセント_r\" _パーセント_s"
+;access.format = "_パーセント_R - _パーセント_u _パーセント_t \"_パーセント_m _パーセント_r_パーセント_Q_パーセント_q\" _パーセント_s _パーセント_f _パーセント_{mili}d _パーセント_{kilo}M _パーセント_C_パーセント__パーセント_"
 
 ; The log file for slow requests
 ; Default Value: not set
