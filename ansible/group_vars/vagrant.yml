@@ -4,6 +4,7 @@ box: centos/7
 # memory 512, 1024, 2048
 memory: 1024
 # id_address
+hostname: x.dev
 ip: 192.168.33.55
 
 # mount folder
@@ -11,4 +12,5 @@ ip: 192.168.33.55
 synced_folder: ./src
 document_root: /home/vagrant/src
 
+public_dir: /home/vagrant/src/blog/pulic
 app_name: blog

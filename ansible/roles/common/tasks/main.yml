@@ -6,7 +6,7 @@
 
 # --
 - name: Change SELinux Policy Mode
-  command: setenforce permissive
+  selinux: state=disabled
   ignore_errors: True
 # --
 

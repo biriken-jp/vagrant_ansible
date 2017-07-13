@@ -7,10 +7,10 @@
   - laravel
   - after
   # - percona
-  # - nginx
-  # - php-fpm-55
+  - nginx
+  - php-fpm
   # - firewalld
   # - sample
-  # - nginx-conf
+  - nginx-conf
   # - youtrack
   # - varnish

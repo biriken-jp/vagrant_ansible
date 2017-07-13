@@ -23,6 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # setting plugin
   if Vagrant.has_plugin?('vagrant-hostsupdater')
+    config.vm.hostname = _conf["hostname"]
     config.hostsupdater.remove_on_suspend = true
   end
   if Vagrant.has_plugin?('vagrant-vbguest')
@@ -40,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # setting ip
   config.vm.network :private_network, ip: _conf['ip']
   # setting synced folder
-  config.vm.synced_folder _conf["synced_folder"], _conf["document_root"], create: true, owner: 'vagrant', group: 'vagrant', mount_options: ['dmode=777,fmode=777']
+  config.vm.synced_folder _conf["synced_folder"], _conf["document_root"]
 
   # make ansible/hosts
   File.open("ansible/hosts", "w") do |f|

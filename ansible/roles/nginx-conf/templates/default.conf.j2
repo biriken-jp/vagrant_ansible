@@ -1,0 +1,29 @@
+server {
+    listen  {{conf_port}};
+    server_name {{hostname}};
+    root            {{public_dir}};
+    access_log      {{conf_access_log}};
+
+    location / {
+       index index.php index.html index.htm;
+       try_files $uri $uri/ /index.php$query_string;
+     }
+     location ~ \.php$ {
+       fastcgi_pass 127.0.0.1:9000;
+       fastcgi_index index.php;
+       fastcgi_param SCRIPT_FILENAME /var/www/laravel/public/$fastcgi_script_name;
+       include fastcgi_params;
+     }
+
+     location ~ /\.(ht|svn|git) {
+        deny all;
+     }
+     location ~ \.htaccess {
+        deny all;
+     }
+
+     location ~* \.(gif|jpg|jpeg|png|css|js)$ {
+        expires max;
+     }
+
+ }
