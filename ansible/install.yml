@@ -5,10 +5,11 @@
   - common
   - php
   - laravel
-#  - percona
-#  - nginx
-#  - php-fpm-55
-#  - firewalld
+  - after
+  # - percona
+  # - nginx
+  # - php-fpm-55
+  # - firewalld
   # - sample
   # - nginx-conf
   # - youtrack

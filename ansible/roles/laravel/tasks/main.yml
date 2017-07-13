@@ -1,14 +1,23 @@
 ---
 # --
+- name: check laravel
+  stat: path=/home/vagrant/.config/composer/vendor/bin/laravel
+  register: laravel
+
 - name: laravel global install
   command: composer global require "laravel/installer"
   become: yes
   become_user: vagrant
+  when: not laravel.stat.exists
 # --
+# --
+- name: check app
+  stat: path={{ document_root }}/{{ app_name }}
+  register: app
 
-# --
 - name: insltall laravel app
-  comand: /home/vagrant/.config/composer/vendor/bin/laravel new {{ app_name }}
+  command: /home/vagrant/.config/composer/vendor/bin/laravel new {{ app_name }} chdir={{ document_root }}
   become: yes
   become_user: vagrant
+  when: not app.stat.exists
 # --

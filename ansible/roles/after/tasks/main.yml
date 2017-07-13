@@ -1,7 +1,9 @@
 ---
 # --
-- name: .bashrc add line alias
-    lineinfile: dest=/home/vagrant/.bashrc line="alias la='ls -la'"
-- name: .bashrc add line composer command
-    lineinfile: dest=/home/vagrant/.bashrc line="PATH=$HOME/.config/composer/vendor/bin:$PATH'"
+- name: .bashrc add line
+  lineinfile: >
+      dest=/home/vagrant/.bashrc
+      line={{ item }}
+  with_items: bashrc_alias
+
 # --
