@@ -45,7 +45,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # make ansible/hosts
   File.open("ansible/hosts", "w") do |f|
-    f.puts("[vagrant]\n\r")
+    f.puts("[vagrant]\r")
     f.puts(_conf['ip'])
   end
 
