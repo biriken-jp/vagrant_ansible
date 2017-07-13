@@ -1,4 +1,4 @@
 ---
-- bash_alias
+bash_alias:
   - alias la=`ls -la`
   - PATH=$HOME/.config/composer/vendor/bin:$PATH
