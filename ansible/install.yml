@@ -2,15 +2,16 @@
 - hosts: vagrant
   sudo: yes
   roles:
+ # --
   - common
+# --
+  - firewalld
   - php
-  - laravel
-  - after
-  # - percona
-  - nginx
   - php-fpm
-  # - firewalld
-  # - sample
+  - laravel
+  - nginx
   - nginx-conf
-  # - youtrack
-  # - varnish
+  # - percona
+# --
+  - after
+# --

@@ -11,7 +11,7 @@ server {
      location ~ \.php$ {
        fastcgi_pass 127.0.0.1:9000;
        fastcgi_index index.php;
-       fastcgi_param SCRIPT_FILENAME /var/www/laravel/public/$fastcgi_script_name;
+       fastcgi_param SCRIPT_FILENAME {{public_dir}}/$fastcgi_script_name;
        include fastcgi_params;
      }
 
