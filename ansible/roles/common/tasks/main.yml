@@ -34,7 +34,6 @@
   yum: name={{ item }} state=present
   with_items:
     - ansible
-    - epel-release
     - gcc
     - vim
     - git

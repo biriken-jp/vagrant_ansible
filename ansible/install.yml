@@ -3,7 +3,7 @@
   sudo: yes
   roles:
   - common
-  - web_tool
+  - php
 #  - percona
 #  - nginx
 #  - php-fpm-55
