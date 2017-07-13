@@ -1,3 +1,4 @@
+---
 # boxname
 box: centos/7
 # memory 512, 1024, 2048
@@ -7,5 +8,7 @@ ip: 192.168.33.55
 
 # mount folder
 # [local]synced_folder ->[vb]document_root
-synced_folder: ./
-document_root: /share
+synced_folder: ./src
+document_root: /home/vagrant/src
+
+app_name: blog

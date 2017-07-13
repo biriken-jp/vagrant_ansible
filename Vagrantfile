@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # require config
   _conf = YAML.load(
       File.open(
-          File.join(File.dirname(__FILE__), 'vagrant.yml'),
+          File.join(File.dirname(__FILE__), './ansible/group_vars/vagrant.yml'),
           File::RDONLY
       ).read
   )
@@ -40,11 +40,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # setting ip
   config.vm.network :private_network, ip: _conf['ip']
   # setting synced folder
-  config.vm.synced_folder _conf["synced_folder"], _conf["document_root"], create: true, owner: 'vagrant', group: 'vagrant', mount_options: ['dmode=777,fmode=666']
+  config.vm.synced_folder _conf["synced_folder"], _conf["document_root"], create: true, owner: 'vagrant', group: 'vagrant', mount_options: ['dmode=777,fmode=777']
 
   # make ansible/hosts
   File.open("ansible/hosts", "w") do |f|
-    f.puts("[localhost]\r\n")
+    f.puts("[vagrant]\r\n")
     f.puts(_conf['ip'])
   end
 

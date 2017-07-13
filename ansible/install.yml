@@ -1,9 +1,10 @@
 ---
-- hosts: localhost
+- hosts: vagrant
   sudo: yes
   roles:
   - common
   - php
+  - laravel
 #  - percona
 #  - nginx
 #  - php-fpm-55

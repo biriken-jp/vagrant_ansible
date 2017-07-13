@@ -1,0 +1,14 @@
+---
+# --
+- name: laravel global install
+  command: composer global require "laravel/installer"
+  become: yes
+  become_user: vagrant
+# --
+
+# --
+- name: insltall laravel app
+  comand: /home/vagrant/.config/composer/vendor/bin/laravel new {{ app_name }}
+  become: yes
+  become_user: vagrant
+# --

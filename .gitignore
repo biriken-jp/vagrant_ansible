@@ -1,7 +1,9 @@
 .idea
 .vagrant
+src
 
-# ansible
-ansible/linode_tuan.yml
+# -- ansible --
 install.retry
 ansible/hosts
+
+!.gitkeep
