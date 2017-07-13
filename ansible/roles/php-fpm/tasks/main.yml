@@ -1,4 +1,7 @@
 ---
+- name: Create Folder for Opcache
+  file: path=/var/lib/php/opcache state=directory owner=vagrant group=vagrant mode=770
+
 - name: Create Folder for Session
   file: path=/var/lib/php/session state=directory owner=vagrant group=vagrant mode=770
 
